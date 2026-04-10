@@ -1,0 +1,676 @@
+/* 
+   DSR 360 REMODELAÇÕES — ELITE DESIGN SYSTEM (ÉVORA)
+   Fidelity: Manrope (Headings) & Montserrat (Body)
+   Palette: Deep Blue, Electric Cyan & Steel Silver
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;600;800&family=Montserrat:ital,wght@0,100;0,400;0,700;1,400&display=swap');
+
+:root {
+    /* Paleta DSR 360 (Extraída do Logo) */
+    --primary: #012b55;       /* Azul Profundo */
+    --primary-light: #00447c;
+    --accent: #00a8e8;        /* Cyan Elétrico */
+    --accent-light: #44ccff;
+    --steel: #e0e0e0;         /* Cinzento Metálico */
+    
+    /* Neutros */
+    --white: #ffffff;
+    --bg-light: #fafafa;
+    --bg-dark: #0a0a0a;
+    --text-main: #222222;
+    --text-muted: #666666;
+    
+    /* Superfícies Glassmorphism */
+    --glass: rgba(255, 255, 255, 0.95);
+    --glass-dark: rgba(1, 43, 85, 0.9);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    
+    /* Tipografia */
+    --font-heading: 'Manrope', sans-serif;
+    --font-body: 'Montserrat', sans-serif;
+    
+    /* Escala Visual */
+    --h1-size: clamp(32px, 5vw, 64px);
+    --h2-size: clamp(24px, 4vw, 42px);
+    --body-size: 16px;
+    --line-height: 1.6;
+    
+    /* Efeitos */
+    --radius: 16px;
+    --shadow-premium: 0 20px 40px rgba(1, 43, 85, 0.1);
+    --shadow-glow: 0 0 20px rgba(0, 168, 232, 0.3);
+    --transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* --- Base Reset --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: var(--body-size);
+    line-height: var(--line-height);
+    color: var(--text-main);
+    background-color: var(--bg-light);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, .manrope {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    line-height: 1.1;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+ul { list-style: none; }
+
+/* --- Componentes Globais --- */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.section-padding {
+    padding: 100px 0;
+}
+
+.btn-premium {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 32px;
+    background: var(--primary);
+    color: var(--white);
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    box-shadow: var(--shadow-premium);
+    overflow: hidden;
+    position: relative;
+}
+
+.btn-premium::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+    transition: var(--transition);
+    z-index: 0;
+}
+
+.btn-premium:hover::after {
+    opacity: 0.2;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.btn-premium span { position: relative; z-index: 1; }
+
+.text-gradient {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* --- Navigation --- */
+.nav-elite {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    background: transparent;
+    transition: var(--transition);
+}
+
+.nav-elite.scrolled {
+    background: var(--glass);
+    backdrop-filter: blur(20px);
+    height: 75px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-main {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 22px;
+    color: var(--primary);
+    letter-spacing: -1px;
+}
+
+.logo-sub {
+    font-size: 8px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: var(--accent);
+}
+
+.nav-links {
+    display: flex;
+    gap: 40px;
+}
+
+.nav-links a {
+    font-weight: 700;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-main);
+    opacity: 0.7;
+}
+
+.nav-links a:hover { opacity: 1; color: var(--accent); }
+
+/* --- Hero Section & Angular Effect --- */
+.hero-elite {
+    height: 95vh;
+    display: flex;
+    align-items: center;
+    background: var(--bg-light);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.9;
+}
+
+/* Efeito Angular Friavac */
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: var(--white);
+    clip-path: polygon(0 0, 48% 0, 32% 100%, 0 100%);
+    opacity: 0.95;
+    backdrop-filter: blur(5px);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 600px;
+}
+
+.hero-tag {
+    display: inline-block;
+    padding: 6px 16px;
+    background: rgba(1, 43, 85, 0.05);
+    border: 1px solid rgba(1, 43, 85, 0.1);
+    color: var(--primary);
+    font-weight: 800;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    border-radius: 50px;
+    margin-bottom: 24px;
+}
+
+.hero-title {
+    font-size: var(--h1-size);
+    margin-bottom: 24px;
+}
+
+.hero-title span { display: block; }
+
+.hero-description {
+    font-size: 18px;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+    max-width: 500px;
+}
+
+/* --- Services (DSR Cards) --- */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+}
+
+.service-card {
+    background: var(--white);
+    padding: 48px;
+    border-radius: 32px;
+    border: 1px solid rgba(0,0,0,0.03);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card:hover {
+    transform: translateY(-15px);
+    box-shadow: var(--shadow-premium);
+    border-color: rgba(0, 168, 232, 0.3);
+}
+
+.service-icon {
+    width: 64px;
+    height: 64px;
+    background: rgba(1, 43, 85, 0.03);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 32px;
+    color: var(--primary);
+    font-size: 24px;
+    transition: var(--transition);
+}
+
+.service-card:hover .service-icon {
+    background: var(--primary);
+    color: var(--accent);
+    transform: rotateY(180deg);
+}
+
+.service-card h3 {
+    margin-bottom: 16px;
+    font-size: 22px;
+}
+
+.service-card p {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-bottom: 24px;
+}
+
+/* --- Discovery Quiz (Compacto 1/3) --- */
+.quiz-wrapper {
+    max-width: 450px; /* Reduzido (~1/3 da largura da página em desktop) */
+    margin: 0 auto;
+    background: var(--bg-dark);
+    border-radius: 40px;
+    padding: 40px;
+    color: var(--white);
+    box-shadow: 0 40px 100px rgba(1, 43, 85, 0.3);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.quiz-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.quiz-header h2 {
+    font-size: 20px;
+    margin-bottom: 8px;
+    color: var(--accent);
+}
+
+.quiz-header p {
+    font-size: 12px;
+    opacity: 0.6;
+}
+
+.progress-container {
+    width: 100%;
+    height: 2px;
+    background: rgba(255,255,255,0.1);
+    margin-bottom: 48px;
+    position: relative;
+}
+
+.progress-bar {
+    height: 100%;
+    background: var(--accent);
+    width: 25%;
+    transition: var(--transition);
+    box-shadow: var(--shadow-glow);
+}
+
+.quiz-step {
+    display: none;
+    animation: stepReveal 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.quiz-step.active { display: block; }
+
+@keyframes stepReveal {
+    from { opacity: 0; transform: translateX(20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.options-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.option-btn {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.option-btn:hover {
+    background: rgba(255,255,255,0.08);
+    border-color: var(--accent);
+}
+
+.option-btn.selected {
+    background: var(--accent);
+    color: var(--primary);
+    border-color: var(--white);
+}
+
+.option-btn span {
+    font-size: 24px;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.option-btn p {
+    font-weight: 800;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.quiz-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.btn-back {
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.4;
+    cursor: pointer;
+}
+
+.btn-back:hover { opacity: 1; color: var(--accent); }
+
+/* --- WhatsApp Official Button --- */
+.whatsapp-overlay {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    z-index: 2000;
+}
+
+.whatsapp-btn {
+    width: 65px;
+    height: 65px;
+    background-color: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-shadow: 2px 5px 20px rgba(0,0,0,0.25);
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    animation: whatsapp-pulse 2s infinite;
+}
+
+.whatsapp-btn:hover {
+    transform: scale(1.1);
+    background-color: #128C7E; /* Tom mais escuro oficial no hover */
+}
+
+@keyframes whatsapp-pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+}
+
+/* --- Mobile Fixes --- */
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hero-title { font-size: 38px; }
+    .hero-overlay { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); opacity: 0.8; }
+    .section-padding { padding: 60px 0; }
+    .quiz-wrapper { max-width: 100%; border-radius: 0; }
+}
+
+/* --- Process Section --- */
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+}
+
+.process-item {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 24px;
+    position: relative;
+    border: 1px solid rgba(0,0,0,0.03);
+    transition: var(--transition);
+}
+
+.process-item:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+}
+
+.process-number {
+    font-family: var(--font-heading);
+    font-size: 40px;
+    font-weight: 800;
+    color: var(--accent);
+    opacity: 0.2;
+    margin-bottom: 20px;
+}
+
+.process-item h4 {
+    margin-bottom: 12px;
+    font-size: 18px;
+}
+
+.process-item p {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+/* --- Reviews Section --- */
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.review-card {
+    background: rgba(255,255,255,0.05);
+    padding: 40px;
+    border-radius: 24px;
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: var(--transition);
+}
+
+.review-card:hover {
+    background: rgba(255,255,255,0.08);
+    transform: scale(1.02);
+}
+
+.review-stars {
+    color: var(--accent);
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.review-card p {
+    font-style: italic;
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 24px;
+    opacity: 0.9;
+}
+
+.review-author {
+    font-weight: 800;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent);
+}
+
+/* --- FAQ Section --- */
+.faq-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.faq-item {
+    background: var(--white);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.faq-question {
+    padding: 24px;
+    font-weight: 800;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: var(--transition);
+}
+
+.faq-question:hover {
+    background: var(--bg-light);
+    color: var(--accent);
+}
+
+.faq-answer {
+    padding: 0 24px 24px 24px;
+    font-size: 14px;
+    color: var(--text-muted);
+    display: none; /* Controlado via JS */
+    animation: slideDown 0.4s ease;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.faq-item.active .faq-answer {
+    display: block;
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(45deg);
+}
+
+.faq-icon {
+    transition: var(--transition);
+    font-size: 20px;
+    color: var(--accent);
+}
+
+/* --- Rodapé Branco (Crédito) --- */
+.footer-white {
+    background: var(--white);
+    padding: 32px 0;
+    text-align: center;
+    border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+.footer-white p {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: var(--text-muted);
+}
+
+.brand-next {
+    color: var(--primary);
+    position: relative;
+    padding-left: 4px;
+    transition: var(--transition);
+}
+
+.brand-next::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 4px;
+    width: 0;
+    height: 1.5px;
+    background: var(--accent);
+    transition: var(--transition);
+}
+
+.footer-white p:hover .brand-next {
+    color: var(--accent);
+}
+
+.footer-white p:hover .brand-next::after {
+    width: calc(100% - 4px);
+}
