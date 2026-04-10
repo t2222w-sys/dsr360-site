@@ -227,17 +227,18 @@ ul { list-style: none; }
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.9;
+    object-position: right; /* Garante que o técnico fica à direita */
+    opacity: 1;
 }
 
-/* Efeito Angular Friavac */
+/* Efeito Angular - Otimizado para legibilidade */
 .hero-overlay {
     position: absolute;
     inset: 0;
     background: var(--white);
-    clip-path: polygon(0 0, 48% 0, 32% 100%, 0 100%);
-    opacity: 0.95;
-    backdrop-filter: blur(5px);
+    clip-path: polygon(0 0, 55% 0, 40% 100%, 0 100%); /* Alargado de 48%/32% para 55%/40% */
+    opacity: 1;
+    z-index: 1;
 }
 
 .hero-content {
