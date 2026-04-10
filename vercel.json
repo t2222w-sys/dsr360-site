@@ -1,0 +1,7 @@
+{
+  "name": "dsr360-site",
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}

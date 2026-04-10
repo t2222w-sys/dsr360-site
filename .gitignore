@@ -3,3 +3,5 @@ node_modules
 preview_cliente.html
 *.log
 .DS_Store
+
+.vercel
