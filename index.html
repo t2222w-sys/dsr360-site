@@ -70,63 +70,85 @@
     }
     </script>
 
+    <!-- Fontes do Google Otimizadas e Assíncronas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;600;800&family=Montserrat:ital,wght@0,100;0,400;0,700;1,400&display=swap" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;600;800&family=Montserrat:ital,wght@0,100;0,400;0,700;1,400&display=swap">
+    </noscript>
+
+    <!-- Pré-carregamento de Imagem Hero (Otimização LCP) -->
+    <link rel="preload" href="hero-pladur.png" as="image" type="image/png" fetchpriority="high">
+
     <!-- CSS -->
     <link rel="stylesheet" href="index.css">
-    <!-- Scripts Externos -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Scripts Externos com Defer -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
 </head>
 <body>
 
-    <!-- WhatsApp Floating Button -->
     <!-- WhatsApp Official Button -->
-    <div class="whatsapp-overlay">
-        <a href="https://wa.me/351926468181?text=Olá DSR 360, gostaria de pedir um orçamento para remodelação." target="_blank" class="whatsapp-btn" aria-label="Contacto por WhatsApp">
-            <svg viewBox="0 0 448 512" width="32" height="32">
-                <path fill="#FFF" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-5.5-2.8-23.4-8.6-44.6-27.6-16.5-14.7-27.6-32.8-30.8-38.4-3.2-5.6-.3-8.6 2.5-11.4 2.5-2.5 5.5-6.5 8.3-9.7 2.8-3.2 3.7-5.5 5.5-9.3 1.9-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 13.2 5.8 23.5 9.2 31.5 11.8 13.3 4.2 25.4 3.6 35 2.2 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.7z"/>
-            </svg>
-        </a>
-    </div>
+    <a href="https://wa.me/351926468181?text=Olá DSR 360, gostaria de pedir um orçamento para remodelação." target="_blank" class="whatsapp-float pulse" aria-label="Contacto por WhatsApp">
+        <svg viewBox="0 0 448 512" width="35" height="35" fill="white">
+            <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-5.6-2.8-23.5-8.6-44.8-27.6-16.6-14.8-27.8-33.1-31.1-38.6-3.2-5.5-.3-8.5 2.5-11.2 2.5-2.5 5.5-6.5 8.3-9.7 2.8-3.3 3.7-5.5 5.5-9.3.5-3.7-.3-6.5-1.4-9.3-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 13.2 5.8 23.5 9.2 31.5 11.8 13.5 4.3 25.7 3.7 35.5 2.3 10.8-1.5 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+        </svg>
+    </a>
 
     <!-- Navigation -->
     <nav class="nav-elite">
         <div class="container nav-container">
             <div class="logo-wrapper">
-                <img src="logo.png" alt="DSR 360 Logo" style="height: 50px;">
+                <img src="logo.png" alt="DSR 360 Logo" width="50" height="50" style="height: 50px;">
                 <div class="logo-text">
                     <span class="logo-main text-gradient">DSR 360</span>
                     <span class="logo-sub">Remodelações</span>
                 </div>
             </div>
             <div class="nav-links">
-                <a href="#servicos">Serviços</a>
+                <a href="#servicos">Pladur</a>
+                <a href="#servicos">Remodelações</a>
+                <a href="#servicos">Pintura</a>
                 <a href="#portfolio">Portfólio</a>
-                <a href="#orcamento">Orçamento</a>
+                <a href="#" class="btn-open-quiz">Simulador</a>
             </div>
-            <a href="#orcamento" class="btn-premium"><span>Ligar Agora</span></a>
+
+            <!-- Mobile Persistent CTA (Centered via CSS) -->
+            <a href="#" class="btn-header-mobile btn-open-quiz">Contacto</a>
+
+            <!-- Hamburger Button (Moved to far right) -->
+            <button class="hamburger-elite" aria-label="Abrir Menu">
+                <div class="hamburger-inner">
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+
+            <a href="tel:+351926468181" class="btn-premium"><span>Ligar Agora</span></a>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <header class="hero-elite">
         <div class="hero-bg">
-            <img src="hero-pladur.png" alt="Remodelação de luxo e pladur - DSR 360">
+            <img src="hero-pladur.png" alt="Remodelação de luxo e pladur - DSR 360" width="1920" height="1080" fetchpriority="high" decoding="async">
         </div>
         <div class="hero-overlay"></div>
         <div class="container">
             <div class="hero-content">
                 <span class="hero-tag">Especialistas em Interiores</span>
                 <h1 class="hero-title">
-                    RENOVE O SEU <br>
-                    <span class="text-gradient">ESPAÇO COM RIGOR</span> 
-                    EM ÉVORA.
+                    <div class="hero-line"><span class="weight-light">RENOVE O SEU ESPAÇO</span></div>
+                    <div class="hero-line"><span class="text-gradient weight-bold">COM RIGOR</span></div>
+                    <div class="hero-line"><span class="weight-light">EM ÉVORA.</span></div>
                 </h1>
                 <p class="hero-description">
                     Líderes em remodelações de interiores, tetos falsos e pladur. Qualidade de elite com <strong>5 anos de garantia</strong>.
                 </p>
                 <div style="display: flex; gap: 20px;">
-                    <a href="#orcamento" class="btn-premium"><span>Pedir Orçamento</span></a>
-                    <a href="#servicos" style="padding: 16px 32px; border: 1px solid var(--primary); border-radius: 50px; font-weight: 800; font-size: 11px; text-transform: uppercase; letter-spacing: 2px;">Saber Mais</a>
+                    <a href="#" class="btn-premium btn-magnetic btn-open-quiz"><span>Pedir Orçamento</span></a>
+                    <a href="#servicos" class="btn-magnetic" style="padding: 16px 32px; border: 1px solid var(--primary); border-radius: 50px; font-weight: 800; font-size: 11px; text-transform: uppercase; letter-spacing: 2px;">Saber Mais</a>
                 </div>
             </div>
         </div>
@@ -158,23 +180,86 @@
                 <h2 class="hero-title">Domínio Técnico em<br><span class="text-gradient">Cada Detalhe.</span></h2>
             </div>
             <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon" aria-label="Ícone de Construção">🏗️</div>
+                <div class="service-card" onclick="location.href='#orcamento'">
+                    <div class="service-icon" aria-label="Pladur">
+                        <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M3 3h18v18H3V3z" stroke-dasharray="2 2"/>
+                            <path d="M3 12h18M12 3v18"/>
+                            <path d="M7 7l10 10M17 7L7 10" stroke="var(--accent)"/>
+                        </svg>
+                    </div>
                     <h3>Pladur & Tetos</h3>
                     <p>Instalação profissional de sistemas de gesso cartonado (Pladur), incluindo tetos falsos acústicos, divisórias autoportantes e sancas de luz indireta com acabamento de nível Q4.</p>
-                    <a href="#orcamento" style="font-weight: 800; font-size: 10px; color: var(--accent); text-transform: uppercase;">Consultar Especialista →</a>
+                    <a href="#orcamento" class="service-link">Consultar Especialista →</a>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon" aria-label="Ícone de Obras">🧱</div>
+                <div class="service-card" onclick="location.href='#orcamento'">
+                    <div class="service-icon" aria-label="Remodelações">
+                        <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M3 21h18M5 21V7l7-4 7 4v14" stroke="var(--accent)"/>
+                            <path d="M9 21v-6h6v6"/>
+                        </svg>
+                    </div>
                     <h3>Remodelações Integrais</h3>
                     <p>Projetos de renovação completa em Évora. Desde a demolição segura até à entrega chave-na-mão, garantindo conformidade com as normas técnicas e design contemporâneo.</p>
-                    <a href="#orcamento" style="font-weight: 800; font-size: 10px; color: var(--accent); text-transform: uppercase;">Consultar Especialista →</a>
+                    <a href="#orcamento" class="service-link">Consultar Especialista →</a>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon" aria-label="Ícone de Acabamentos">📏</div>
+                <div class="service-card" onclick="location.href='#orcamento'">
+                    <div class="service-icon" aria-label="Acabamentos">
+                        <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 3v18M3 12h18" stroke-dasharray="1 3"/>
+                            <path d="M19 12l-7 7-7-7 7-7 7 7z" stroke="var(--accent)"/>
+                        </svg>
+                    </div>
                     <h3>Revestimentos & Pintura</h3>
                     <p>Aplicação de pavimentos flutuantes, cerâmicos e vinílicos. Pinturas de interiores com tintas de alta resistência e tratamento anti-humidade para o clima do Alentejo.</p>
-                    <a href="#orcamento" style="font-weight: 800; font-size: 10px; color: var(--accent); text-transform: uppercase;">Consultar Especialista →</a>
+                    <a href="#orcamento" class="service-link">Consultar Especialista →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bento Grid Portfólio -->
+    <section id="portfolio" class="section-padding" style="background: var(--bg-light);">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 60px;">
+                <span class="hero-tag">Portfólio</span>
+                <h2 class="hero-title">Espaços <span class="text-gradient">Transformados.</span></h2>
+            </div>
+            <div class="bento-grid">
+                <div class="bento-item bento-large">
+                    <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=1200&auto=format&fit=crop" alt="Cozinha Moderna" width="600" height="450" loading="lazy" decoding="async">
+                    <div class="bento-item-content">
+                        <span>Évora · Centro</span>
+                        <h3>Cozinha Open Space</h3>
+                    </div>
+                </div>
+                <div class="bento-item bento-tall">
+                    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1200&auto=format&fit=crop" alt="Quarto Design" width="300" height="450" loading="lazy" decoding="async">
+                    <div class="bento-item-content">
+                        <span>Montemor</span>
+                        <h3>Suíte Minimalista</h3>
+                    </div>
+                </div>
+                <div class="bento-item">
+                    <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1200&auto=format&fit=crop" alt="Teto Pladur" width="300" height="220" loading="lazy" decoding="async">
+                    <div class="bento-item-content">
+                        <span>Évora</span>
+                        <h3>Sancas de Luz</h3>
+                    </div>
+                </div>
+                <div class="bento-item bento-long">
+                    <img src="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?q=80&w=1200&auto=format&fit=crop" alt="Sala Remodelada" width="600" height="220" loading="lazy" decoding="async">
+                    <div class="bento-item-content">
+                        <span>Arraiolos</span>
+                        <h3>Renovação Total</h3>
+                    </div>
+                </div>
+                <div class="bento-item">
+                    <img src="wc-luxo.png" alt="WC Luxo" width="300" height="220" loading="lazy" decoding="async">
+                    <div class="bento-item-content">
+                        <span>Estremoz</span>
+                        <h3>WC Contemporâneo</h3>
+                    </div>
                 </div>
             </div>
         </div>
@@ -202,13 +287,13 @@
                 </ul>
             </div>
             <div class="authority-image">
-                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2670&auto=format&fit=crop" alt="Remodelação Évora" style="width: 100%; border-radius: 40px; box-shadow: var(--shadow-premium);">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2670&auto=format&fit=crop" alt="Remodelação Évora" style="width: 100%; border-radius: 40px; box-shadow: var(--shadow-premium);" width="600" height="400" loading="lazy" decoding="async">
             </div>
         </div>
     </section>
 
     <!-- Process Section (O Nosso ADN) -->
-    <section class="section-padding" style="background: var(--bg-light);">
+    <section id="metodologia" class="section-padding" style="background: var(--bg-light);">
         <div class="container">
             <div style="text-align: center; margin-bottom: 60px;">
                 <span class="hero-tag">Metodologia</span>
@@ -270,7 +355,7 @@
     </section>
 
     <!-- FAQ Section -->
-    <section class="section-padding">
+    <section id="faq" class="section-padding">
         <div class="container">
             <div style="max-width: 800px; margin: 0 auto;">
                 <div style="text-align: center; margin-bottom: 50px;">
@@ -302,13 +387,25 @@
         </iframe>
     </section>
 
-    <!-- Lead Gen / Quiz Section (O "1/3 size" Wizard) -->
-    <section id="orcamento" class="section-padding" style="background: #f0f4f8;">
+
+    <!-- CTA Section (Substitui o formulário antigo) -->
+    <section id="orcamento" class="section-padding" style="background: var(--primary); color: white; text-align: center;">
         <div class="container">
-            <div style="text-align: center; margin-bottom: 50px;">
-                <h2 class="manrope" style="font-size: 32px; color: var(--primary);">Discovery Wizard</h2>
-                <p style="color: var(--text-muted); font-size: 14px;">Qualifique o seu projeto para um orçamento preciso.</p>
-            </div>
+            <span class="hero-tag" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: var(--accent);">Orçamento Rápido</span>
+            <h2 class="manrope" style="font-size: 38px; margin-bottom: 24px;">Pronto para transformar o seu espaço?</h2>
+            <p style="opacity: 0.7; max-width: 600px; margin: 0 auto 40px; font-size: 16px;">
+                Utilize o nosso simulador inteligente para obter uma estimativa personalizada para o seu projeto em Évora.
+            </p>
+            <button class="btn-premium btn-magnetic btn-open-quiz" style="background: var(--accent); color: var(--primary);">
+                <span>Abrir Simulador DSR 360</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Quiz Modal Overlay -->
+    <div class="modal-overlay" id="quiz-modal">
+        <div class="modal-container">
+            <button class="btn-close-modal" aria-label="Fechar Simulador">✕</button>
             
             <div class="quiz-wrapper" id="discovery-quiz">
                 <div class="quiz-header">
@@ -325,19 +422,27 @@
                         <p style="text-align: center; font-weight: 800; font-size: 12px; text-transform: uppercase; margin-bottom: 24px; color: var(--accent);">O que pretende remodelar?</p>
                         <div class="options-grid">
                             <div class="option-btn" data-value="apartamento">
-                                <span>🏢</span>
+                                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" style="margin-bottom: 10px;">
+                                    <path d="M3 21h18M5 21V5l7-2 7 2v16M9 7h2m-2 4h2m-2 4h2m4-8h2m-2 4h2m-2 4h2" />
+                                </svg>
                                 <p>Apartamento</p>
                             </div>
                             <div class="option-btn" data-value="moradia">
-                                <span>🏡</span>
+                                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" style="margin-bottom: 10px;">
+                                    <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9zM9 22V12h6v10" />
+                                </svg>
                                 <p>Moradia</p>
                             </div>
                             <div class="option-btn" data-value="comercial">
-                                <span>🏪</span>
+                                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" style="margin-bottom: 10px;">
+                                    <path d="M3 21h18M3 7l9-4 9 4v14H3V7zm6 14v-4h6v4" />
+                                </svg>
                                 <p>Comercial</p>
                             </div>
                             <div class="option-btn" data-value="outro">
-                                <span>➕</span>
+                                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" style="margin-bottom: 10px;">
+                                    <path d="M12 5v14M5 12h14" />
+                                </svg>
                                 <p>Outro</p>
                             </div>
                         </div>
@@ -348,19 +453,29 @@
                         <p style="text-align: center; font-weight: 800; font-size: 12px; text-transform: uppercase; margin-bottom: 24px; color: var(--accent);">Qual o serviço principal?</p>
                         <div class="options-grid">
                             <div class="option-btn" data-value="pladur">
-                                <span>🏗️</span>
+                                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" style="margin-bottom: 10px;">
+                                    <path d="M19 11l-8-8-8 8M19 21l-8-8-8 8" />
+                                </svg>
                                 <p>Pladur</p>
                             </div>
                             <div class="option-btn" data-value="pavimento">
-                                <span>📏</span>
+                                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" style="margin-bottom: 10px;">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" />
+                                    <path d="M3 12h18M12 3v18" stroke-dasharray="2 2" />
+                                </svg>
                                 <p>Pavimento</p>
                             </div>
                             <div class="option-btn" data-value="pintura">
-                                <span>🎨</span>
+                                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" style="margin-bottom: 10px;">
+                                    <path d="M12 19l7-7 3 3-7 7-3-3zM18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" />
+                                </svg>
                                 <p>Pintura</p>
                             </div>
                             <div class="option-btn" data-value="total">
-                                <span>🔑</span>
+                                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" style="margin-bottom: 10px;">
+                                    <path d="M3 12c0 1.657 1.343 3 3 3s3-1.343 3-3-1.343-3-3-3-3 1.343-3 3zm15 0c0 1.657 1.343 3 3 3s3-1.343 3-3-1.343-3-3-3-3 1.343-3 3zM12 3v18" />
+                                    <path d="M12 12h9M3 12h9" />
+                                </svg>
                                 <p>Tudo</p>
                             </div>
                         </div>
@@ -394,12 +509,11 @@
 
                     <div class="quiz-nav">
                         <div class="btn-back" id="btn-back" style="visibility: hidden;">← Voltar</div>
-                        <!-- Next is automatic on option click -->
                     </div>
                 </form>
             </div>
         </div>
-    </section>
+    </div>
 
     <!-- Footer -->
     <footer class="section-padding" style="background: var(--bg-dark); color: white; border-top: 1px solid rgba(255,255,255,0.05);">
@@ -407,7 +521,7 @@
             <div>
                 <h3 class="manrope" style="color: var(--accent); font-size: 24px; margin-bottom: 20px;">DSR 360</h3>
                 <p style="opacity: 0.6; font-size: 14px; line-height: 1.8;">
-                    Especialistas em remodelações de interiores sediados em Évora. Rigor, qualidade e garantia em todos os serviços.
+                   Especialistas em remodelações de interiores sediados em Évora. Rigor, qualidade e garantia em todos os serviços.
                 </p>
             </div>
             <div>
@@ -434,6 +548,69 @@
         </div>
     </footer>
 
-    <script src="main.js"></script>
+    <!-- Mobile Menu Overlay -->
+    <div class="menu-mobile-overlay">
+        <div class="menu-mobile-container">
+            <div class="menu-mobile-header">
+                <div class="logo-wrapper">
+                    <img src="logo.png" alt="DSR 360 Logo" width="35" height="35" style="height: 35px;">
+                    <div class="logo-text">
+                        <span class="logo-main text-gradient">DSR 360</span>
+                    </div>
+                </div>
+                <button class="btn-close-menu" aria-label="Fechar Menu">✕</button>
+            </div>
+            
+            <div class="bento-menu-wrap">
+                <!-- Card 1: SERVIÇOS -->
+                <div class="bento-card-main">
+                    <div class="bento-sub-title">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                        SERVIÇOS
+                    </div>
+                    <div class="bento-sub-grid">
+                        <a href="#servicos" class="bento-sub-card mobile-link"><span>Pladur &<br>Tetos</span></a>
+                        <a href="#servicos" class="bento-sub-card mobile-link"><span>Remodelações<br>Integrais</span></a>
+                        <a href="#servicos" class="bento-sub-card mobile-link"><span>Pintura &<br>Acabamentos</span></a>
+                        <a href="#servicos" class="bento-sub-card mobile-link"><span>Revestimentos<br>Técnicos</span></a>
+                    </div>
+                </div>
+
+                <!-- Grid 2x2: Outros -->
+                <div class="bento-grid-2x2">
+                    <a href="#orcamento" class="bento-item-card mobile-link">
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20v-6M9 20v-10M6 20v-4M15 20v-12M18 20V4"/></svg>
+                        <span>Simulador</span>
+                    </a>
+                    <a href="#metodologia" class="bento-item-card mobile-link">
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        <span>Confiança</span>
+                    </a>
+                    <a href="#metodologia" class="bento-item-card mobile-link">
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 7a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg>
+                        <span>Equipa</span>
+                    </a>
+                    <a href="#portfolio" class="bento-item-card mobile-link">
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                        <span>Portfólio</span>
+                    </a>
+                </div>
+
+                <!-- FAQ Row -->
+                <a href="#faq" class="bento-full-card mobile-link">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    Questões Frequentes (FAQs)
+                </a>
+
+                <!-- Final CTA Button -->
+                <a href="tel:+351926468181" class="btn-direct-contact">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M20 15.5c-1.2 0-2.4-.2-3.6-.6-.3-.1-.7 0-1 .2l-2.2 2.2c-2.8-1.4-5.1-3.8-6.6-6.6l2.2-2.2c.3-.3.4-.7.2-1-.3-1.1-.5-2.3-.5-3.5 0-.6-.4-1-1-1H4c-.6 0-1 .4-1 1 0 9.4 7.6 17 17 17 .6 0 1-.4 1-1v-3.5c0-.6-.4-1-1-1z"/></svg>
+                    Contacto Direto
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js" defer></script>
 </body>
 </html>
